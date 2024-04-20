@@ -4,24 +4,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>demo1</artifactId>
+    <groupId>com.plexusworldwide</groupId>
+    <artifactId>TestProject</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>demo1</name>
+    <name>TestProject</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
+        <selenium.java.version>4.19.1</selenium.java.version>
+        <webdriver.manager.version>5.8.0</webdriver.manager.version>
+        <testng.version>7.4.0</testng.version>
         <aspectj.version>1.9.7</aspectj.version>
         <allure.version>2.14.0</allure.version>
+        <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
+        <sl4j.simple.version>1.7.30</sl4j.simple.version>
+        <allure.maven.plugin.version>2.12.0</allure.maven.plugin.version>
+        <allure.report.version>2.14.0</allure.report.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>${selenium.java.version}</version>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -32,18 +39,18 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>4.4.3</version>
+            <version>${webdriver.manager.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.4.0</version>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.7.30</version>
+            <version>${sl4j.simple.version}</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -57,7 +64,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>${maven.surefire.plugin.version}</version>
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
@@ -66,7 +73,7 @@
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
-                            <value>${project.build.directory}/allure-results</value>
+                            <value>target/allure-results</value>
                         </property>
                     </systemProperties>
                 </configuration>
@@ -76,12 +83,20 @@
                         <artifactId>aspectjweaver</artifactId>
                         <version>${aspectj.version}</version>
                     </dependency>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-testng</artifactId>
+                        <version>${maven.surefire.plugin.version}</version>
+                    </dependency>
                 </dependencies>
             </plugin>
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
+                <version>${allure.maven.plugin.version}</version>
+                <configuration>
+                    <reportVersion>${allure.report.version}</reportVersion>
+                </configuration>
             </plugin>
         </plugins>
     </build>

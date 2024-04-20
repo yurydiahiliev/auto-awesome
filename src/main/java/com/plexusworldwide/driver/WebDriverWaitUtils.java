@@ -7,12 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class WebDriverWaitUtils {
 
     private static WebDriver driver = DriverManager.getDriver();
-    private static WebDriverWait wait = new WebDriverWait(driver, PropertyUtils.getExplicitWaitTimeout());
+    private static WebDriverWait wait = new WebDriverWait(driver, Duration.of(PropertyUtils.getExplicitWaitTimeout(), ChronoUnit.SECONDS));
 
     public static WebElement waitForVisibilityOfElement(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

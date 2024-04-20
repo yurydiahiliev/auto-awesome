@@ -16,6 +16,7 @@ To run the tests, use the following Maven command:
 mvn clean test
 ```
 This command will execute the test cases using Chrome as the browser.
+After finished tests execution, Allure results folder will be automatically generated to 'target/allure-results'
 
 ## Generation test report
 To generate the Allure report, use the following Maven command:

@@ -1,6 +1,7 @@
 package com.plexusworldwide.driver;
 
 import com.plexusworldwide.utils.PropertyUtils;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,6 +17,7 @@ public class Browser {
     private final Logger log = LoggerFactory.getLogger(Browser.class);
 
     public WebDriver getChromeDriver() {
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments(
             "--disable-notifications",
