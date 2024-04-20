@@ -1,8 +1,14 @@
 # Compiled class file
 *.class
 
+.idea
+*.iml
+/allure-results
+/target
+
 # Log file
 *.log
+*.xml
 
 # BlueJ files
 *.ctxt
