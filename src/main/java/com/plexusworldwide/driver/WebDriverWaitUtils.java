@@ -1,5 +1,6 @@
 package com.plexusworldwide.driver;
 
+import com.plexusworldwide.utils.PropertyUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,9 +11,8 @@ import java.util.*;
 
 public class WebDriverWaitUtils {
 
-    private static int defaultTimeoutInSeconds = 10;
     private static WebDriver driver = DriverManager.getDriver();
-    private static WebDriverWait wait = new WebDriverWait(driver, defaultTimeoutInSeconds);
+    private static WebDriverWait wait = new WebDriverWait(driver, PropertyUtils.getExplicitWaitTimeout());
 
     public static WebElement waitForVisibilityOfElement(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

@@ -10,6 +10,7 @@ public class ShopPage extends BasePage {
 
     public boolean isOnPage() {
         return driver.getCurrentUrl().contains("/products")
-               && getText(pageHeadingLabel).equals("Product Categories");
+               && getText(pageHeadingLabel, "Shop page heading label")
+                   .equals("Product Categories");
     }
 }

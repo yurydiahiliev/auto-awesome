@@ -1,13 +1,11 @@
 package com.plexusworldwide.pages;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.openqa.selenium.By;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
-import static com.plexusworldwide.pages.PageManager.at;
+import static com.plexusworldwide.utils.PageManager.at;
 import static com.plexusworldwide.utils.LocatorUtils.getCssByDataTestId;
 import static java.util.stream.Collectors.toList;
 
@@ -16,11 +14,11 @@ public class HomePage extends BasePage {
     private By mainNavLeftBarMenuItems = By.cssSelector("ul[class*='leftNav'] " + getCssByDataTestId("menu-item-content-copy"));
 
     public List<String> getMainLeftBarMenuLabels() {
-        return getTexts(mainNavLeftBarMenuItems);
+        return getTexts(mainNavLeftBarMenuItems, "Main Nav Left Bar Menu Items");
     }
 
     public <T extends BasePage> T clickOnNavLeftBarItem(MainLeftBarMenu mainLeftBarMenu) {
-        clickOnElement(mainLeftBarMenu.getLocator());
+        clickOnElement(mainLeftBarMenu.getLocator(), mainLeftBarMenu.name());
         return (T) at(mainLeftBarMenu.getPageClass());
     }
 

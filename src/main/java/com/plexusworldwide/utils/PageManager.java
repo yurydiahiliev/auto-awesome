@@ -1,6 +1,9 @@
-package com.plexusworldwide.pages;
+package com.plexusworldwide.utils;
 
 import com.plexusworldwide.driver.DriverManager;
+import com.plexusworldwide.pages.BasePage;
+import com.plexusworldwide.pages.HomePage;
+import com.plexusworldwide.pages.ShopPage;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 
@@ -9,7 +12,7 @@ import java.util.*;
 
 public class PageManager {
 
-    private static final String BASE_URL = "https://plexusworldwide.com";
+    private static final String BASE_URL = PropertyUtils.getBaseUrl();
     private static WebDriver driver = DriverManager.getDriver();
 
     public static <T extends BasePage> T open(Class<T> pageClass) {

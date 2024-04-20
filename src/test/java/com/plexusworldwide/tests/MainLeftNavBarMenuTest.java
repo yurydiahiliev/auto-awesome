@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 import java.util.*;
 
 import static com.plexusworldwide.pages.HomePage.MainLeftBarMenu.SHOP;
-import static com.plexusworldwide.pages.PageManager.at;
-import static com.plexusworldwide.pages.PageManager.open;
+import static com.plexusworldwide.utils.PageManager.at;
+import static com.plexusworldwide.utils.PageManager.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
