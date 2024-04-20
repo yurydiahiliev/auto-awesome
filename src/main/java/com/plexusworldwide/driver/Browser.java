@@ -15,10 +15,16 @@ public class Browser {
     private WebDriver driver;
     private final Logger log = LoggerFactory.getLogger(Browser.class);
 
-    public WebDriver getDriver() {
+    public WebDriver getChromeDriver() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-notifications");
+        options.addArguments(
+            "--disable-notifications",
+            "--disable-web-security",
+            "--ignore-certificate-errors",
+            "--allow-running-insecure-content",
+            "--allow-insecure-localhost",
+            "--no-sandbox",
+            "--disable-gpu");
         options.setExperimentalOption("excludeSwitches", List.of("disable-popup-blocking"));
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(PropertyUtils.getBrowserTimeout(), TimeUnit.SECONDS);

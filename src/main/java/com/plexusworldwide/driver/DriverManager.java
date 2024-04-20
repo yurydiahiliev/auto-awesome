@@ -18,7 +18,7 @@ public class DriverManager {
         if (driver.get() == null) {
             log.info("Driver was closed or null. Going to create new driver!");
             WebDriverManager.chromedriver().setup();
-            driver.set(new Browser().getDriver());
+            driver.set(new Browser().getChromeDriver());
         }
         return driver.get();
     }
